@@ -16,11 +16,11 @@ class AppRoutes {
   static const String musicsScreen = '/musicsScreen';
 
   static List<GetPage> pages = [
-    GetPage(
-      transition: Transition.rightToLeft,
-      name: signInScreen,
-      page: () => const SignInScreen(),
-    ),
+    // GetPage(
+    //   transition: Transition.rightToLeft,
+    //   name: signInScreen,
+    //   page: () => const SignInScreen(),
+    // ),
    
   ];
 }
