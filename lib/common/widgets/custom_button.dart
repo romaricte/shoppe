@@ -38,7 +38,7 @@ class CustomButton extends StatelessWidget {
             : Text(
                 text,
                 style: TextStyle(
-                  fontFamily: 'OpenSans',
+                  fontFamily: 'NunitoSans',
                   color: textColor ?? Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
