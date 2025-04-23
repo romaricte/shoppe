@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shoppe/common/widgets/custom_button.dart';
 import 'package:shoppe/common/widgets/custom_text_field.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 import 'package:intl_phone_field/countries.dart';
-import 'dart:math' as math;
+
+import 'package:shoppe/core/constants/image_constants.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({super.key});
@@ -17,7 +19,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  bool _obscureText = true;
+  // bool _obscureText = true;
   PhoneNumber? _phoneNumber;
 
   @override
@@ -39,10 +41,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             right: 0,
             top: 0,
             bottom: 0,
-            child: Image.asset(
-              'assets/images/createAccount.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset(ImageConstants.createAccount, fit: BoxFit.cover),
           ),
           // Contenu principal
           SafeArea(
@@ -64,20 +63,41 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     ),
                     const SizedBox(height: 40),
                     // Zone d'upload de photo
-                    Center(
-                      child: GestureDetector(
-                        onTap: () {
-                          // Logique pour upload de photo
-                        },
-                        child: CustomDashedCircle(
-                          child: Image.asset(
-                            'assets/images/uploadPhoto.png',
-                            width: 36,
-                            height: 36,
-                          ),
+                    GestureDetector(
+                      onTap: () {
+                        // Get.dialog(
+                        //   AlertDialog(
+                        //     title: Text('Titre'),
+                        //     content: Text('Contenu'),
+                        //   ),
+                        // );
+                        // Get.bottomSheet(Container(
+                        //   height: 200,
+                        //   width: 200,
+                        //   color: Colors.white,
+                        //   child: Text('Contenu'),
+                        // ));
+                        Get.snackbar(
+                          'Camera',
+                          'You can upload your photo from camera',
+                          duration: Duration(seconds: 5),
+                          icon: Icon(Icons.camera),
+                          dismissDirection: DismissDirection.vertical,
+
+                        );
+                      },
+                      child: Container(
+                        width: 86,
+                        height: 86,
+                        decoration: BoxDecoration(shape: BoxShape.circle),
+                        child: Image.asset(
+                          ImageConstants.uploadPhoto,
+                          width: 86,
+                          height: 86,
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 30),
                     // Champ email
                     CustomTextField(
@@ -90,18 +110,18 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     CustomTextField(
                       controller: _passwordController,
                       hint: 'Password',
-                      obscureText: _obscureText,
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _obscureText ? Icons.visibility_off : Icons.visibility,
-                          color: Colors.grey,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          });
-                        },
-                      ),
+                      // obscureText: _obscureText,
+                      // suffixIcon: IconButton(
+                      //   icon: Icon(
+                      //     _obscureText ? Icons.visibility_off : Icons.visibility,
+                      //     color: Colors.grey,
+                      //   ),
+                      //   onPressed: () {
+                      //     // setState(() {
+                      //     //   _obscureText = !_obscureText;
+                      //     // });
+                      //   },
+                      // ),
                     ),
                     const SizedBox(height: 16),
                     // Champ téléphone international
@@ -119,7 +139,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(color: Color(0xFF1152FD)),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF1152FD),
+                          ),
                         ),
                       ),
                       initialCountryCode: 'GB',
@@ -129,7 +151,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         color: Colors.grey,
                         size: 20,
                       ),
-                      flagsButtonPadding: const EdgeInsets.symmetric(horizontal: 12),
+                      flagsButtonPadding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                      ),
                       showDropdownIcon: true,
                       disableLengthCheck: true,
                       onChanged: (phone) {
@@ -147,7 +171,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         final email = _emailController.text;
                         final password = _passwordController.text;
                         final completePhone = _phoneNumber?.completeNumber;
-                        
+
                         // Logique de soumission du formulaire
                         print('Email: $email');
                         print('Password: $password');
@@ -160,14 +184,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     Center(
                       child: TextButton(
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          Get.back();
                         },
                         child: const Text(
                           'Cancel',
-                          style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 16,
-                          ),
+                          style: TextStyle(color: Colors.black87, fontSize: 16),
                         ),
                       ),
                     ),
@@ -181,72 +202,4 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       ),
     );
   }
-}
-
-class CustomDashedCircle extends StatelessWidget {
-  final Widget child;
-  final double radius;
-  final Color color;
-
-  const CustomDashedCircle({
-    Key? key,
-    required this.child,
-    this.radius = 42,
-    this.color = const Color(0xFF1152FD),
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: radius * 2,
-      height: radius * 2,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-      ),
-      child: CustomPaint(
-        painter: DashedCirclePainter(color: color),
-        child: Center(child: child),
-      ),
-    );
-  }
-}
-
-class DashedCirclePainter extends CustomPainter {
-  final Color color;
-  final double strokeWidth;
-  final int dashCount;
-
-  DashedCirclePainter({
-    required this.color,
-    this.strokeWidth = 1.5,
-    this.dashCount = 20,
-  });
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
-      ..color = color
-      ..strokeWidth = strokeWidth
-      ..style = PaintingStyle.stroke;
-
-    final double radius = math.min(size.width, size.height) / 2;
-    final Offset center = Offset(size.width / 2, size.height / 2);
-
-    final double dashLength = (2 * math.pi * radius) / (dashCount * 2);
-    double startAngle = 0;
-
-    for (int i = 0; i < dashCount; i++) {
-      canvas.drawArc(
-        Rect.fromCircle(center: center, radius: radius),
-        startAngle,
-        math.pi / dashCount,
-        false,
-        paint,
-      );
-      startAngle += 2 * math.pi / dashCount;
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

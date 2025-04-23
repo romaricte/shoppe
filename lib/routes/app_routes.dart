@@ -1,26 +1,22 @@
 import 'package:get/get.dart';
-
+import 'package:shoppe/presentation/start/start_screen.dart';
+import 'package:shoppe/presentation/create account/create_account_screen.dart'; 
 
 class AppRoutes {
-  static const String signInScreen = '/signInScreen';
-  static const String splashScreen = '/splashScreen';
-  static const String signUpScreen = '/signUpScreen';
-  static const String signInSignInScreen = '/signInSignInScreen';
-  static const String welcomeScreen = '/welcomeScreen';
-  static const String chooseTopicScreen = '/chooseTopicScreen'; 
-  static const String remindersScreen = '/remindersScreen';
-  static const String homeScreen = '/homeScreen';
-  static const String courseDetailScreen = '/courseDetailScreen';
-  static const String musicScreen = '/musicScreen';
-  static const String playOptionScreen = '/playOptionScreen';
-  static const String musicsScreen = '/musicsScreen';
+  static const String startScreen = '/startScreen'; 
+  static const String createAccountScreen = '/createAccountScreen';
 
   static List<GetPage> pages = [
-    // GetPage(
-    //   transition: Transition.rightToLeft,
-    //   name: signInScreen,
-    //   page: () => const SignInScreen(),
-    // ),
-   
+    GetPage(
+      name: startScreen,
+      page: () => const StartScreen(),
+      transition: Transition.zoom,
+      transitionDuration: const Duration(milliseconds: 200),
+    ),
+    GetPage(
+      name: createAccountScreen,
+      page: () => const CreateAccountScreen(),
+      transition: Transition.rightToLeft,
+    ),
   ];
 }

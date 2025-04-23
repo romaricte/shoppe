@@ -53,3 +53,9 @@ flutter pub run flutter_launcher_icons
 Pour un résultat optimal, votre image source devrait être carrée, de haute qualité et de préférence au format PNG avec une taille de 1024x1024 pixels.
 
 Voulez-vous que je vous guide dans l'implémentation d'une de ces méthodes ?
+
+flutter_launcher_icons:  # Utilisez cette syntaxe au lieu de flutter_icons
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
+  remove_alpha_ios: true  # Ajoutez cette ligne pour supprimer la transparence des icônes iOS
