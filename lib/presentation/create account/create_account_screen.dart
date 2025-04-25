@@ -7,6 +7,7 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'package:intl_phone_field/countries.dart';
 
 import 'package:shoppe/core/constants/image_constants.dart';
+import 'package:shoppe/routes/app_routes.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({super.key});
@@ -171,7 +172,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         final email = _emailController.text;
                         final password = _passwordController.text;
                         final completePhone = _phoneNumber?.completeNumber;
-
+                        Get.snackbar(
+                          'Done',
+                          'You have successfully created your account',
+                          duration: Duration(seconds: 5),
+                          icon: Icon(Icons.check),
+                          dismissDirection: DismissDirection.vertical,
+                        );
+                        Get.toNamed(AppRoutes.loginScreen);
                         // Logique de soumission du formulaire
                         print('Email: $email');
                         print('Password: $password');

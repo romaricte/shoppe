@@ -9,7 +9,7 @@ class ImageConstants {
   static const String hello = 'assets/images/auth/hello.png';
   static const String ready = 'assets/images/auth/ready.png';
   static const String createAccount = 'assets/images/auth/createAccount.png';
-
+  static const String login = 'assets/images/auth/login.png';
  
   
   

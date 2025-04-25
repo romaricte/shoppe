@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:shoppe/presentation/login/login_screen.dart';
 import 'package:shoppe/presentation/start/start_screen.dart';
 import 'package:shoppe/presentation/create account/create_account_screen.dart'; 
 
 class AppRoutes {
   static const String startScreen = '/startScreen'; 
   static const String createAccountScreen = '/createAccountScreen';
+  static const String loginScreen = '/loginScreen';
 
   static List<GetPage> pages = [
     GetPage(
@@ -16,6 +18,11 @@ class AppRoutes {
     GetPage(
       name: createAccountScreen,
       page: () => const CreateAccountScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: loginScreen,
+      page: () => const LoginScreen(),
       transition: Transition.rightToLeft,
     ),
   ];
