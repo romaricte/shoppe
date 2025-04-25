@@ -20,6 +20,6 @@ class ImageConstants {
 
   // icons
   static const String uploadPhoto = 'assets/icons/uploadPhoto.png';
-  
+  static const String avatargirl = 'assets/icons/avatargirl.jpg';
  
 } 

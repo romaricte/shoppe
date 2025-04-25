@@ -39,10 +39,10 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                 CircleAvatar(
                   radius: 40,
                   backgroundColor: Colors.pink[100],
-                  child: const Icon(
-                    Icons.person,
-                    size: 40,
-                    color: Colors.white,
+                  child: const Image(
+                    image: AssetImage(ImageConstants.avatargirl),
+                    width: 40,
+                    height: 40,
                   ),
                 ),
                 const SizedBox(height: 20),
