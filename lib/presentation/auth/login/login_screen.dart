@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoppe/common/widgets/custom_text.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -34,21 +35,18 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 40),
-                const Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 40,
+                const CustomText(
+                  text: 'Login',
+                  fontSize: 40,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
-                  ),
+                  
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  'Good to see you back! ♥',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black54,
-                  ),
+                const CustomText(
+                  text: 'Good to see you back! ♥',
+                  fontSize: 16,
+                  color: Colors.black54,
                 ),
                 const SizedBox(height: 40),
                 TextField(
@@ -79,26 +77,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Text(
-                    'Next',
-                    style: TextStyle(
-                      color: Colors.white,
+                  child: const CustomText(
+                    text: 'Next',
+                    color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
+                
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: () {
                     // TODO: Implement cancel logic
                   },
-                  child: const Text(
-                    'Cancel',
-                    style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 16,
-                    ),
+                  child: const CustomText(
+                    text: 'Cancel',
+                    color: Colors.black54,
+                    fontSize: 16,
                   ),
                 ),
               ],

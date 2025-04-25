@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:shoppe/presentation/login/login_screen.dart';
+import 'package:shoppe/presentation/auth/login/login_screen.dart';
 import 'package:shoppe/presentation/start/start_screen.dart';
-import 'package:shoppe/presentation/create account/create_account_screen.dart'; 
+import 'package:shoppe/presentation/auth/create%20account/create_account_screen.dart'; 
 
 class AppRoutes {
   static const String startScreen = '/startScreen'; 
