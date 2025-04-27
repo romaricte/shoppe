@@ -21,5 +21,11 @@ class ImageConstants {
   // icons
   static const String uploadPhoto = 'assets/icons/uploadPhoto.png';
   static const String avatargirl = 'assets/icons/avatargirl.jpg';
+  static const String re = 'assets/icons/avatargirl.jpg';
+  static const String ee = 'assets/icons/avatargirl.jpg';
+  static const String tg = 'assets/icons/avatargirl.jpg';
+  static const String tgb = 'assets/icons/avatargirl.jpg';
+  static const String hjyy = 'assets/icons/avatargirl.jpg';
+
  
 } 
