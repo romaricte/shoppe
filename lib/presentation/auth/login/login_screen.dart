@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shoppe/common/widgets/custom_text.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
+import 'package:shoppe/common/widgets/custom_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -34,13 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const SizedBox(height: 40),
+                const Spacer(flex: 2),
                 const CustomText(
                   text: 'Login',
                   fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
                 const SizedBox(height: 8),
                 const CustomText(
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                     hintText: 'Email',
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.9),
+                    fillColor: Colors.grey.shade200,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
@@ -66,25 +66,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 24),
-                ElevatedButton(
+                CustomButton(
+                  text: 'Next',
                   onPressed: () {
-                    // TODO: Implement login logic
+                    
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: const CustomText(
-                    text: 'Next',
-                    color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                
+                  backgroundColor: const Color(0xFF1152FD),
+                ),
+               
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: () {
@@ -96,6 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 16,
                   ),
                 ),
+                const Spacer(),
               ],
             ),
           ),
