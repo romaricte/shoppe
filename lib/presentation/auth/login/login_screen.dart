@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shoppe/common/widgets/custom_text.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
 import 'package:shoppe/common/widgets/custom_button.dart';
+import 'package:get/get.dart';
+import 'package:shoppe/routes/app_routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -69,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomButton(
                   text: 'Next',
                   onPressed: () {
-                    
+                    Get.toNamed(AppRoutes.verifyOtpScreen);
                   },
                   backgroundColor: const Color(0xFF1152FD),
                 ),

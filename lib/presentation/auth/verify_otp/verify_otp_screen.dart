@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:shoppe/common/widgets/custom_button.dart';
 import 'package:shoppe/common/widgets/custom_text.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
 
@@ -35,7 +36,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const SizedBox(height: 40),
+                const Spacer(flex: 1),
                 CircleAvatar(
                   radius: 40,
                   backgroundColor: Colors.pink[100],
@@ -90,14 +91,18 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                TextButton(
+                CustomButton(
+                  text: 'Next',
                   onPressed: () {
                     // Gérer le "Not you?" ici
                   },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
+                  backgroundColor: const Color(0xFF1152FD),
+                ),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
                         'Not you?',
                         style: TextStyle(
                           color: Colors.black87,
@@ -119,7 +124,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                       ),
                     ],
                   ),
-                ),
+                
               ],
             ),
           ),
