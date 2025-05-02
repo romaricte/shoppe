@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shoppe/common/widgets/custom_text.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
+import 'package:shoppe/core/utils/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,23 +48,27 @@ class _HomeScreenState extends State<HomeScreen> {
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
+              backgroundColor: AppColors.blue,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-            child: const Text(
-              'My Activity',
-              style: TextStyle(color: Colors.white),
+            child: const CustomText(
+              text: 'My Activity',
+              color: Colors.white,
             ),
           ),
           const Spacer(),
           IconButton(
-            icon: const Icon(Icons.menu),
+            icon: const Icon(Icons.scanner_rounded, color: AppColors.blue),
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(Icons.settings),
+            icon: const Icon(Icons.menu_open_sharp, color: AppColors.blue),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings, color: AppColors.blue),
             onPressed: () {},
           ),
         ],
@@ -84,21 +90,21 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Announcement',
-                  style: TextStyle(
+                const CustomText(
+                  text: 'Announcement',
+                 
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                  ),
+                  
                 ),
-                const Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                  style: TextStyle(color: Colors.grey),
+                const CustomText(
+                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                  color: Colors.grey,
                 ),
               ],
             ),
           ),
-          Icon(Icons.arrow_forward, color: Colors.blue),
+          Icon(Icons.arrow_forward, color: AppColors.blue),
         ],
       ),
     );
@@ -110,12 +116,10 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         const Padding(
           padding: EdgeInsets.all(16.0),
-          child: Text(
-            'Recently viewed',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+          child: CustomText(
+            text: 'Recently viewed',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
         SizedBox(
@@ -145,12 +149,10 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         const Padding(
           padding: EdgeInsets.all(16.0),
-          child: Text(
-            'My Orders',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+          child: CustomText(
+            text: 'My Orders',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
         Row(
@@ -169,14 +171,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
-        color: Colors.blue.withOpacity(0.1),
+        color: AppColors.blue.withOpacity(0.1),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         children: [
-          Icon(icon, size: 20, color: Colors.blue),
+          Icon(icon, size: 20, color: AppColors.blue),
           const SizedBox(width: 8),
-          Text(text, style: const TextStyle(color: Colors.blue)),
+          CustomText(text: text, color: AppColors.blue),
         ],
       ),
     );
@@ -188,12 +190,10 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         const Padding(
           padding: EdgeInsets.all(16.0),
-          child: Text(
-            'Stories',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+          child: CustomText(
+            text: 'Stories',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
         SizedBox(

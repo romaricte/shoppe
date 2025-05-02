@@ -1,8 +1,9 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shoppe/common/widgets/custom_button.dart';
 import 'package:shoppe/common/widgets/custom_text.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
+import 'package:shoppe/routes/app_routes.dart';
 
 class VerifyOtpScreen extends StatefulWidget {
   const VerifyOtpScreen({super.key});
@@ -94,6 +95,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                 CustomButton(
                   text: 'Next',
                   onPressed: () {
+                    Get.toNamed(AppRoutes.homeScreen);
                     // Gérer le "Not you?" ici
                   },
                   backgroundColor: const Color(0xFF1152FD),
