@@ -104,7 +104,15 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          Icon(Icons.arrow_forward, color: AppColors.blue),
+          Container(
+            margin: const EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: AppColors.blue,
+            ),
+            child: Icon(Icons.arrow_forward, color: Colors.white),
+          ),
         ],
       ),
     );
@@ -134,6 +142,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.grey[300],
+                  backgroundImage: AssetImage(ImageConstants.viewed1),
+
                 ),
               );
             },
