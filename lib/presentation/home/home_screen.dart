@@ -137,13 +137,23 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: 5,
             itemBuilder: (context, index) {
+              String viewedImage = ImageConstants.viewed1;
+              if (index == 1) {
+                viewedImage = ImageConstants.viewed2;
+              } else if (index == 2) {
+                viewedImage = ImageConstants.viewed3;
+              } else if (index == 3) {
+                viewedImage = ImageConstants.viewed4;
+              } else if (index == 4) {
+                viewedImage = ImageConstants.viewed5;
+              }
+              
               return Padding(
                 padding: const EdgeInsets.only(right: 12),
                 child: CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.grey[300],
-                  backgroundImage: AssetImage(ImageConstants.viewed1),
-
+                  backgroundImage: AssetImage(viewedImage),
                 ),
               );
             },
