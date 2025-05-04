@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shoppe/common/widgets/custom_text.dart';
+import 'package:shoppe/components/home/new_items.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
 import 'package:shoppe/core/utils/colors.dart';
 
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
               _buildRecentlyViewed(),
               _buildMyOrders(),
               _buildStories(),
+              const NewItems(),
             ],
           ),
         ),
