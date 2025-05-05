@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:shoppe/common/widgets/custom_text.dart';
 import 'package:shoppe/components/home/categories.dart';
 import 'package:shoppe/components/home/flash_sale.dart';
+import 'package:shoppe/components/home/just_for_you.dart';
 import 'package:shoppe/components/home/most_popular.dart';
 import 'package:shoppe/components/home/new_items.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
@@ -34,7 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
               const NewItems(),
               const MostPopular(),
               const Categories(),
-               const FlashSale(),
+              const FlashSale(),
+              const JustForYou(),
             ],
           ),
         ),
