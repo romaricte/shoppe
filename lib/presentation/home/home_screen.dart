@@ -8,6 +8,7 @@ import 'package:shoppe/components/home/most_popular.dart';
 import 'package:shoppe/components/home/new_items.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
 import 'package:shoppe/core/utils/colors.dart';
+import 'package:shoppe/presentation/wishlist/wishlist_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,30 +19,52 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  
+  // Liste des écrans disponibles
+  late final List<Widget> _screens;
+  
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      _buildHomeContent(),
+      const WishlistScreen(),
+      const Center(child: Text('Orders')), // Écran Orders temporaire
+      const Center(child: Text('Messages')), // Écran Messages temporaire
+      const Center(child: Text('Profile')), // Écran Profile temporaire
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildTopBar(),
-              _buildAnnouncement(),
-              _buildRecentlyViewed(),
-              _buildMyOrders(),
-              _buildStories(),
-              const NewItems(),
-              const MostPopular(),
-              const Categories(),
-              const FlashSale(),
-              const JustForYou(),
-            ],
-          ),
+        child: IndexedStack(
+          index: _selectedIndex,
+          children: _screens,
         ),
       ),
       bottomNavigationBar: _buildBottomNavigationBar(),
+    );
+  }
+
+  Widget _buildHomeContent() {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildTopBar(),
+          _buildAnnouncement(),
+          _buildRecentlyViewed(),
+          _buildMyOrders(),
+          _buildStories(),
+          const NewItems(),
+          const MostPopular(),
+          const Categories(),
+          const FlashSale(),
+          const JustForYou(),
+        ],
+      ),
     );
   }
 
@@ -257,12 +280,12 @@ class _HomeScreenState extends State<HomeScreen> {
         });
       },
       type: BottomNavigationBarType.fixed,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Wishlist'),
-        BottomNavigationBarItem(icon: Icon(Icons.article), label: 'Orders'),
-        BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Messages'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+      items: [
+        const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        const BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Wishlist'),
+        const BottomNavigationBarItem(icon: Icon(Icons.article), label: 'Orders'),
+        const BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Messages'),
+        const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
       ],
     );
   }
