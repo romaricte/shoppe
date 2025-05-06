@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:shoppe/presentation/auth/login/login_screen.dart';
 import 'package:shoppe/presentation/auth/verify_otp/verify_otp_screen.dart';
 import 'package:shoppe/presentation/home/home_screen.dart';
+import 'package:shoppe/presentation/payment/payment.dart';
 import 'package:shoppe/presentation/start/start_screen.dart';
 import 'package:shoppe/presentation/auth/create%20account/create_account_screen.dart'; 
 
@@ -11,7 +12,7 @@ class AppRoutes {
   static const String loginScreen = '/loginScreen';
   static const String verifyOtpScreen = '/verifyOtpScreen';
   static const String homeScreen = '/homeScreen';
-
+  static const String paymentScreen = '/paymentScreen';
   static List<GetPage> pages = [
     GetPage(
       name: startScreen,
@@ -37,6 +38,11 @@ class AppRoutes {
     GetPage(
       name: homeScreen,
       page: () => const HomeScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: paymentScreen,
+      page: () => const Payment(),
       transition: Transition.rightToLeft,
     ),
   ];

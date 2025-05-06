@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shoppe/common/widgets/custom_button.dart';
 import 'package:shoppe/common/widgets/custom_text.dart';
 import 'package:shoppe/core/utils/colors.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
+import 'package:shoppe/routes/app_routes.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -151,7 +153,9 @@ class _CartScreenState extends State<CartScreen> {
                     child: CustomButton(
                       text: 'Checkout',
                       backgroundColor: AppColors.blue,
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.paymentScreen);
+                      },
                     ),
                   ),
                 ],
