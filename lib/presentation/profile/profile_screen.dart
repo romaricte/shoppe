@@ -1,59 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:shoppe/common/widgets/custom_text.dart';
-import 'package:shoppe/components/home/categories.dart';
-import 'package:shoppe/components/home/flash_sale.dart';
-import 'package:shoppe/components/home/just_for_you.dart';
 import 'package:shoppe/components/home/most_popular.dart';
 import 'package:shoppe/components/home/new_items.dart';
+import 'package:shoppe/components/home/just_for_you.dart';
+import 'package:shoppe/components/home/flash_sale.dart';
+import 'package:shoppe/components/home/categories.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
 import 'package:shoppe/core/utils/colors.dart';
-import 'package:shoppe/presentation/profile/profile_screen.dart';
-import 'package:shoppe/presentation/wishlist/wishlist_screen.dart';
-import 'package:shoppe/presentation/cart/cart_screen.dart';
 import 'package:shoppe/routes/app_routes.dart';
-import 'package:shoppe/presentation/messageries/messageries_screen.dart';
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+
+
+
+
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-  
-  // Liste des écrans disponibles
-  late final List<Widget> _screens;
-  
-  @override
-  void initState() {
-    super.initState();
-    _screens = [
-      _buildHomeContent(),
-      const WishlistScreen(),
-      const CartScreen(), // Écran Orders temporaire
-      const MessageriesScreen(), // Écran Messages temporaire
-      const ProfileScreen(), // Écran Profile temporaire
-    ];
-  }
-
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: IndexedStack(
-          index: _selectedIndex,
-          children: _screens,
-        ),
-      ),
-      bottomNavigationBar: _buildBottomNavigationBar(),
-    );
-  }
-
-  Widget _buildHomeContent() {
-    return SingleChildScrollView(
+    return  SafeArea(
+      child: Scaffold(
+        body:SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -69,9 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
           const JustForYou(),
         ],
       ),
+    ),
+      ),
     );
   }
 
+  
   Widget _buildTopBar() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -103,7 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
           const Spacer(),
           IconButton(
             icon: const Icon(Icons.scanner_rounded, color: AppColors.blue),
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(AppRoutes.rewardProgressScreen);
+            },
           ),
           IconButton(
             icon: const Icon(Icons.menu_open_sharp, color: AppColors.blue),
@@ -111,7 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.settings, color: AppColors.blue),
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(AppRoutes.settingScreen);
+            },
           ),
         ],
       ),
@@ -285,22 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      currentIndex: _selectedIndex,
-      onTap: (index) {
-        setState(() {
-          _selectedIndex = index;
-        });
-      },
-      type: BottomNavigationBarType.fixed,
-      items: [
-        const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        const BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Wishlist'),
-        const BottomNavigationBarItem(icon: Icon(Icons.article), label: 'Orders'),
-        const BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Messages'),
-        const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-      ],
-    );
-  }
+ 
+
 }
+

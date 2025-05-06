@@ -2,15 +2,18 @@ import 'package:get/get.dart';
 import 'package:shoppe/presentation/auth/login/login_screen.dart';
 import 'package:shoppe/presentation/auth/verify_otp/verify_otp_screen.dart';
 import 'package:shoppe/presentation/home/home_screen.dart';
+import 'package:shoppe/presentation/messageries/messageries_screen.dart';
 import 'package:shoppe/presentation/my_activity/my_activity_screen.dart';
 import 'package:shoppe/presentation/payment/payment.dart';
 import 'package:shoppe/presentation/product_detail/product_detail_screen.dart';
+import 'package:shoppe/presentation/rewards_progress/reward_progress_screen.dart';
 import 'package:shoppe/presentation/start/start_screen.dart';
 import 'package:shoppe/presentation/auth/create%20account/create_account_screen.dart'; 
 import 'package:shoppe/presentation/reviews/review_screen.dart';
 import 'package:shoppe/presentation/cart/cart_screen.dart';
 import 'package:shoppe/presentation/to_recieve/to_recieve_screen.dart';
 import 'package:shoppe/presentation/orders/orders_screen.dart';
+import 'package:shoppe/presentation/profile/setting_screen.dart';
 
 class AppRoutes {
   static const String startScreen = '/startScreen'; 
@@ -25,6 +28,9 @@ class AppRoutes {
   static const String toRecieveScreen = '/toRecieveScreen';
   static const String myActivityScreen = '/myActivityScreen';
   static const String ordersScreen = '/ordersScreen';
+  static const String messageriesScreen = '/messageriesScreen';
+  static const String settingScreen = '/settingScreen';
+  static const String rewardProgressScreen = '/rewardProgressScreen';
   static List<GetPage> pages = [
     GetPage(
       name: startScreen,
@@ -85,6 +91,21 @@ class AppRoutes {
     GetPage(
       name: ordersScreen,
       page: () => const OrdersScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: messageriesScreen,
+      page: () => const MessageriesScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: settingScreen,
+      page: () => const SettingScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: rewardProgressScreen,
+      page: () => const RewardProgressScreen(),
       transition: Transition.rightToLeft,
     ),
     ];
