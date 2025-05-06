@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:shoppe/common/widgets/custom_text.dart';
 import 'package:shoppe/components/home/categories.dart';
 import 'package:shoppe/components/home/flash_sale.dart';
@@ -10,6 +11,7 @@ import 'package:shoppe/core/constants/image_constants.dart';
 import 'package:shoppe/core/utils/colors.dart';
 import 'package:shoppe/presentation/wishlist/wishlist_screen.dart';
 import 'package:shoppe/presentation/cart/cart_screen.dart';
+import 'package:shoppe/routes/app_routes.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -221,18 +223,23 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildOrderButton(String text, IconData icon) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      decoration: BoxDecoration(
-        color: AppColors.blue.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        children: [
-          Icon(icon, size: 20, color: AppColors.blue),
-          const SizedBox(width: 8),
-          CustomText(text: text, color: AppColors.blue),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed(AppRoutes.toRecieveScreen);
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        decoration: BoxDecoration(
+          color: AppColors.blue.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, size: 20, color: AppColors.blue),
+            const SizedBox(width: 8),
+            CustomText(text: text, color: AppColors.blue),
+          ],
+        ),
       ),
     );
   }

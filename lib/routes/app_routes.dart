@@ -8,6 +8,7 @@ import 'package:shoppe/presentation/start/start_screen.dart';
 import 'package:shoppe/presentation/auth/create%20account/create_account_screen.dart'; 
 import 'package:shoppe/presentation/reviews/review_screen.dart';
 import 'package:shoppe/presentation/cart/cart_screen.dart';
+import 'package:shoppe/presentation/to_recieve/to_recieve_screen.dart';
 
 class AppRoutes {
   static const String startScreen = '/startScreen'; 
@@ -19,6 +20,7 @@ class AppRoutes {
   static const String productDetailScreen = '/productDetailScreen';
   static const String reviewScreen = '/reviewScreen';
   static const String cartScreen = '/cartScreen';
+  static const String toRecieveScreen = '/toRecieveScreen';
   static List<GetPage> pages = [
     GetPage(
       name: startScreen,
@@ -64,6 +66,11 @@ class AppRoutes {
     GetPage(
       name: cartScreen,
       page: () => const CartScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: toRecieveScreen,
+      page: () => const ToRecieveScreen(),
       transition: Transition.rightToLeft,
     ),
   ];
