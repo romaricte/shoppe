@@ -106,7 +106,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                 },
               ),
             ),
-            const CustomBottomNavigationBar(),
+           
           ],
         ),
       ),
@@ -268,56 +268,4 @@ class WishlistItem {
   });
 }
 
-class CustomBottomNavigationBar extends StatelessWidget {
-  const CustomBottomNavigationBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: const Offset(0, -5),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _buildNavItem(Icons.home_outlined, true),
-          _buildNavItem(Icons.favorite, false, isSelected: true),
-          _buildNavItem(Icons.list_alt_outlined, false),
-          _buildNavItem(Icons.shopping_cart_outlined, false),
-          _buildNavItem(Icons.person_outline, false),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNavItem(IconData icon, bool isHome, {bool isSelected = false}) {
-    return Container(
-      width: 60,
-      height: double.infinity,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        border: isSelected
-            ? const Border(
-                bottom: BorderSide(
-                  color: Colors.black,
-                  width: 2.0,
-                ),
-              )
-            : null,
-      ),
-      child: Icon(
-        icon,
-        color: isSelected ? Colors.black : Colors.grey,
-        size: 24,
-      ),
-    );
-  }
-}
+ 
