@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
 import 'package:shoppe/core/utils/colors.dart';
-
+import 'package:get/get.dart';
+import 'package:shoppe/routes/app_routes.dart';
 
 class NewItems extends StatefulWidget {
   const NewItems({super.key});
@@ -28,7 +29,9 @@ class _NewItemsState extends State<NewItems> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(AppRoutes.productDetailScreen);
+                },
                 child: Row(
                   children: [
                     const Text(

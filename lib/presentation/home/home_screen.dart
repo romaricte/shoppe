@@ -9,7 +9,7 @@ import 'package:shoppe/components/home/new_items.dart';
 import 'package:shoppe/core/constants/image_constants.dart';
 import 'package:shoppe/core/utils/colors.dart';
 import 'package:shoppe/presentation/wishlist/wishlist_screen.dart';
-
+import 'package:shoppe/presentation/cart/cart_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _screens = [
       _buildHomeContent(),
       const WishlistScreen(),
-      const Center(child: Text('Orders')), // Écran Orders temporaire
+      const CartScreen(), // Écran Orders temporaire
       const Center(child: Text('Messages')), // Écran Messages temporaire
       const Center(child: Text('Profile')), // Écran Profile temporaire
     ];
