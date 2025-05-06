@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:shoppe/presentation/auth/login/login_screen.dart';
 import 'package:shoppe/presentation/auth/verify_otp/verify_otp_screen.dart';
 import 'package:shoppe/presentation/home/home_screen.dart';
+import 'package:shoppe/presentation/my_activity/my_activity_screen.dart';
 import 'package:shoppe/presentation/payment/payment.dart';
 import 'package:shoppe/presentation/product_detail/product_detail_screen.dart';
 import 'package:shoppe/presentation/start/start_screen.dart';
@@ -9,6 +10,7 @@ import 'package:shoppe/presentation/auth/create%20account/create_account_screen.
 import 'package:shoppe/presentation/reviews/review_screen.dart';
 import 'package:shoppe/presentation/cart/cart_screen.dart';
 import 'package:shoppe/presentation/to_recieve/to_recieve_screen.dart';
+import 'package:shoppe/presentation/orders/orders_screen.dart';
 
 class AppRoutes {
   static const String startScreen = '/startScreen'; 
@@ -21,6 +23,8 @@ class AppRoutes {
   static const String reviewScreen = '/reviewScreen';
   static const String cartScreen = '/cartScreen';
   static const String toRecieveScreen = '/toRecieveScreen';
+  static const String myActivityScreen = '/myActivityScreen';
+  static const String ordersScreen = '/ordersScreen';
   static List<GetPage> pages = [
     GetPage(
       name: startScreen,
@@ -73,5 +77,15 @@ class AppRoutes {
       page: () => const ToRecieveScreen(),
       transition: Transition.rightToLeft,
     ),
-  ];
+    GetPage(
+      name: myActivityScreen,
+      page: () => const MyActivityScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: ordersScreen,
+      page: () => const OrdersScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    ];
 }

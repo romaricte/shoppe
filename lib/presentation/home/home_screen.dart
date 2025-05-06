@@ -88,9 +88,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-            child: const CustomText(
-              text: 'My Activity',
-              color: Colors.white,
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(AppRoutes.myActivityScreen);
+              },
+              child: const CustomText(
+                text: 'My Activity',
+                color: Colors.white,
+              ),
             ),
           ),
           const Spacer(),
