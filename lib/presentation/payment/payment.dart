@@ -445,16 +445,27 @@ class _PaymentState extends State<Payment> {
               color: Colors.black,
               textAlign: TextAlign.left,
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: AppColors.blue,
-                shape: BoxShape.circle,
-              ),
-              padding: const EdgeInsets.all(8),
-              child: const Icon(
-                Icons.edit,
-                color: Colors.white,
-                size: 16,
+            GestureDetector(
+              onTap: () {
+                if (title == 'Shipping Address') {
+                  _showShippingAddressBottomSheet(context);
+                } else if (title == 'Contact Information') {
+                  // TODO: Implement contact information edit
+                } else if (title == 'Payment Method') {
+                  // TODO: Implement payment method edit
+                }
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColors.blue,
+                  shape: BoxShape.circle,
+                ),
+                padding: const EdgeInsets.all(8),
+                child: const Icon(
+                  Icons.edit,
+                  color: Colors.white,
+                  size: 16,
+                ),
               ),
             ),
           ],
@@ -462,6 +473,153 @@ class _PaymentState extends State<Payment> {
         const SizedBox(height: 8),
         content,
       ],
+    );
+  }
+
+  void _showShippingAddressBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.all(24),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const TitleText(
+                text: 'Shipping Address',
+                textAlign: TextAlign.left,
+                color: Colors.black,
+              ),
+              const SizedBox(height: 24),
+              
+              // Country
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const BodyText(
+                    text: 'Country',
+                    color: Colors.black87,
+                  ),
+                  const SizedBox(height: 8),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade100,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('India'),
+                        Icon(Icons.arrow_drop_down_circle, color: Colors.grey),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              
+              const SizedBox(height: 16),
+              
+              // Address
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const BodyText(
+                    text: 'Address',
+                    color: Colors.black87,
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    initialValue: 'Magadi Main Rd, next to Prasanna Theatre, C',
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey.shade100,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              
+              const SizedBox(height: 16),
+              
+              // Town/City
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const BodyText(
+                    text: 'Town / City',
+                    color: Colors.black87,
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    initialValue: 'Bengaluru, Karnataka 560023',
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey.shade100,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              
+              const SizedBox(height: 16),
+              
+              // Postcode
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const BodyText(
+                    text: 'Postcode',
+                    color: Colors.black87,
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    initialValue: '70000',
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey.shade100,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              
+              const SizedBox(height: 24),
+              
+              SizedBox(
+                width: double.infinity,
+                child: CustomButton(
+                  text: 'Save Changes',
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  backgroundColor: AppColors.blue,
+                ),
+              ),
+              
+              const SizedBox(height: 16),
+            ],
+          ),
+        );
+      },
     );
   }
 
